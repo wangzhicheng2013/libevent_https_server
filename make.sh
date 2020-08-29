@@ -1,0 +1,1 @@
+g++ -std=c++11 -g -o Test test.cpp -I ./ -levent -levent_openssl -lssl -lcrypto -pthread
