@@ -67,7 +67,9 @@ public:
 		config.url_type_ = url_mapper::get().get_type(config.url);
 	}
 	inline void get_request_body(http_config &config) {
-		const char *body = (const char *)EVBUFFER_DATA(http_req_->input_buffer);
+		struct evbuffer *buf = evhttp_request_get_input_buffer(http_req_);
+		evbuffer_add(buf, "", 1);
+		char *body = (char *)evbuffer_pullup(buf, -1);
 		if (body != nullptr) {
 			config.request_body = body;
 		}
