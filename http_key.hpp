@@ -1,13 +1,6 @@
 #ifndef SRC_HTTP_KEY_HPP_
 #define SRC_HTTP_KEY_HPP_
 #include "url_mapper.hpp"
-enum rest_type {
-	GET,
-	POST,
-	PUT,
-	DELETE,
-	UNKNOWN_REST_TYPE
-};
 class http_key {
 public:
 	explicit http_key(rest_type a, url_type b) : rest_type_(a), url_type_(b) {

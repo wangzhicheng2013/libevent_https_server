@@ -64,7 +64,7 @@ public:
 		evhttp_uri_free(decoded);
 	}
 	inline void get_url_type(http_config &config) {
-		config.url_type_ = url_mapper::get().get_type(config.url);
+		config.url_type_ = url_mapper::get().get_type(config.url, config.rest_type_);
 	}
 	inline void get_request_body(http_config &config) {
 		struct evbuffer *buf = evhttp_request_get_input_buffer(http_req_);
